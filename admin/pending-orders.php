@@ -27,6 +27,16 @@ if(strlen($_SESSION['alogin']) == 0) {
         popUpWin = open(URLStr, 'popUpWin', 'toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=no,copyhistory=yes,width='+600+',height='+600+',left='+left+',top='+top+',screenX='+left+',screenY='+top+'');
     }
     </script>
+    <style>
+    .datatable-1 td div {
+        margin-bottom: 5px; /* Отступ между строками данных */
+    }
+    .datatable-1 td div strong {
+        display: inline-block;
+        width: 150px; /* Ширина метки для выравнивания */
+    }
+</style>
+
 </head>
 <body>
 <?php include('include/header.php');?>
@@ -53,20 +63,20 @@ if(strlen($_SESSION['alogin']) == 0) {
             <br />
 
             <table cellpadding="0" cellspacing="0" border="0" class="datatable-1 table table-bordered table-striped display table-responsive">
-                <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>Имя</th>
-                        <th width="50">Email / Контактный телефон</th>
-                        <th>Адрес доставки</th>
-                        <th>Продукт</th>
-                        <th>Кол-во</th>
-                        <th>Сумма</th>
-                        <th>Дата заказа</th>
-                        <th>Действие</th>
-                    </tr>
-                </thead>
-                <tbody>
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Имя</th>
+            <th>Email / Контактный телефон</th>
+            <th>Адрес доставки</th>
+            <th>Продукт</th>
+            <th>Кол-во</th>
+            <th>Сумма</th>
+            <th>Дата заказа</th>
+            <th>Действие</th>
+        </tr>
+    </thead>
+    <tbody>
     <?php 
     $status = 'Delivered';
     $query = mysqli_query($con, "SELECT users.name AS username, users.email AS useremail, users.contactno AS usercontact, users.shippingAddress AS shippingaddress, users.shippingCity AS shippingcity, users.shippingState AS shippingstate, users.shippingPincode AS shippingpincode, products.productName AS productname, products.shippingCharge AS shippingcharge, orders.quantity AS quantity, orders.orderDate AS orderdate, products.productPrice AS productprice, orders.id AS id  
@@ -77,23 +87,27 @@ if(strlen($_SESSION['alogin']) == 0) {
     $cnt = 1;
     while($row = mysqli_fetch_array($query)) {
     ?>                                        
-                    <tr>
-                        <td><?php echo htmlentities($cnt);?></td>
-                        <td><?php echo htmlentities($row['username']);?></td>
-                        <td><?php echo htmlentities($row['useremail']);?>/<?php echo htmlentities($row['usercontact']);?></td>
-                        <td><?php echo htmlentities($row['shippingaddress'].", ".$row['shippingcity'].", ".$row['shippingstate']."-".$row['shippingpincode']);?></td>
-                        <td><?php echo htmlentities($row['productname']);?></td>
-                        <td><?php echo htmlentities($row['quantity']);?></td>
-                        <td><?php echo htmlentities($row['quantity'] * $row['productprice'] + $row['shippingcharge']);?></td>
-                        <td><?php echo htmlentities($row['orderdate']);?></td>
-                        <td><a href="updateorder.php?oid=<?php echo htmlentities($row['id']);?>" title="Обновить заказ" target="_blank"><i class="icon-edit"></i></a></td>
-                    </tr>
+        <tr>
+            <td><?php echo htmlentities($cnt);?></td>
+            <td><?php echo htmlentities($row['username']);?></td>
+            <td>
+                <div><strong>Email:</strong> <?php echo htmlentities($row['useremail']);?></div>
+                <div><strong>Контактный телефон:</strong> <?php echo htmlentities($row['usercontact']);?></div>
+            </td>
+            <td><?php echo htmlentities($row['shippingaddress'].", ".$row['shippingcity'].", ".$row['shippingstate']."-".$row['shippingpincode']);?></td>
+            <td><?php echo htmlentities($row['productname']);?></td>
+            <td><?php echo htmlentities($row['quantity']);?></td>
+            <td><?php echo htmlentities($row['quantity'] * $row['productprice'] + $row['shippingcharge']);?></td>
+            <td><?php echo htmlentities($row['orderdate']);?></td>
+            <td><a href="updateorder.php?oid=<?php echo htmlentities($row['id']);?>" title="Обновить заказ" target="_blank"><i class="icon-edit"></i></a></td>
+        </tr>
     <?php 
     $cnt = $cnt + 1; 
     } 
     ?>
-                </tbody>
-            </table>
+    </tbody>
+</table>
+
         </div>
     </div>                        
 

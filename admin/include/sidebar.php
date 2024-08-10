@@ -29,7 +29,7 @@
                             <i class="icon-tasks"></i>
                             Ожидающие заказы
                             <?php
-                            $status = 'Delivered';
+                            $status = 'В процессе';
                             $ret = mysqli_query($con, "SELECT * FROM Orders WHERE orderStatus != '$status' OR orderStatus IS NULL");
                             $num = mysqli_num_rows($ret);
                             ?>
@@ -41,7 +41,7 @@
                             <i class="icon-inbox"></i>
                             Доставленные заказы
                             <?php
-                            $status = 'Delivered';
+                            $status = 'Доставлен';
                             $rt = mysqli_query($con, "SELECT * FROM Orders WHERE orderStatus = '$status'");
                             $num1 = mysqli_num_rows($rt);
                             ?>

@@ -31,37 +31,115 @@ function printPage() {
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
     <title>Обновление заказа</title>
-    <link href="style.css" rel="stylesheet" type="text/css" />
-    <link href="anuj.css" rel="stylesheet" type="text/css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f4f7;
+            color: #333;
+        }
+        .container {
+            margin: 50px auto;
+            max-width: 700px;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .header-title {
+            color: #6ab0f0;
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .order-id {
+            font-size: 18px;
+            font-weight: bold;
+            color: #6ab0f0;
+        }
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .table td, .table th {
+            padding: 10px 15px;
+        }
+        .table th {
+            background-color: #6ab0f0;
+            color: #fff;
+            text-align: left;
+        }
+        .status-delivered {
+            color: #28a745;
+            font-weight: bold;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .form-group input, .form-group textarea, .form-group select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .form-group textarea {
+            resize: vertical;
+        }
+        .btn {
+            background-color: #6ab0f0;
+            color: #fff;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-right: 10px;
+        }
+        .btn:hover {
+            background-color: #004494;
+        }
+        .btn-close {
+            background-color: #6c757d;
+        }
+        .btn-close:hover {
+            background-color: #5a6268;
+        }
+        hr {
+            border: 0;
+            height: 1px;
+            background: #ddd;
+            margin: 20px 0;
+        }
+    </style>
 </head>
 <body>
-<div style="margin-left:50px;">
+<div class="container">
+    <div class="header-title">Обновление заказа</div>
     <form name="updateticket" id="updateticket" method="post"> 
-        <table width="100%" border="0" cellspacing="0" cellpadding="0">
-            <tr height="50">
-                <td colspan="2" class="fontkink2" style="padding-left:0px;">
-                    <div class="fontpink2"><b>Обновление заказа!</b></div>
-                </td>
-            </tr>
-            <tr height="30">
-                <td class="fontkink1"><b>ID заказа:</b></td>
-                <td class="fontkink"><?php echo $oid; ?></td>
+        <table class="table">
+            <tr>
+                <th>ID заказа:</th>
+                <td class="order-id"><?php echo $oid; ?></td>
             </tr>
             <?php 
             $ret = mysqli_query($con, "SELECT * FROM ordertrackhistory WHERE orderId='$oid'");
             while ($row = mysqli_fetch_array($ret)) {
             ?>
-            <tr height="20">
-                <td class="fontkink1"><b>Дата:</b></td>
-                <td class="fontkink"><?php echo $row['postingDate']; ?></td>
+            <tr>
+                <th>Дата:</th>
+                <td><?php echo $row['postingDate']; ?></td>
             </tr>
-            <tr height="20">
-                <td class="fontkink1"><b>Статус:</b></td>
-                <td class="fontkink"><?php echo $row['status']; ?></td>
+            <tr>
+                <th>Статус:</th>
+                <td><?php echo $row['status']; ?></td>
             </tr>
-            <tr height="20">
-                <td class="fontkink1"><b>Комментарий:</b></td>
-                <td class="fontkink"><?php echo $row['remark']; ?></td>
+            <tr>
+                <th>Комментарий:</th>
+                <td><?php echo $row['remark']; ?></td>
             </tr>
             <tr>
                 <td colspan="2"><hr /></td>
@@ -76,39 +154,30 @@ function printPage() {
             }
             if ($st == $currentSt) { ?>
             <tr>
-                <td colspan="2"><b>Продукт доставлен</b></td>
+                <td colspan="2" class="status-delivered">Продукт доставлен</td>
             </tr>
             <?php } else { ?>
-            <tr height="50">
-                <td class="fontkink1">Статус:</td>
-                <td class="fontkink">
-                    <span class="fontkink1">
-                        <select name="status" class="fontkink" required="required">
-                            <option value="">Выберите статус</option>
-                            <option value="in Process">В процессе</option>
-                            <option value="Delivered">Доставлен</option>
-                        </select>
-                    </span>
+            <tr class="form-group">
+                <td>Статус:</td>
+                <td>
+                    <select name="status" required="required">
+                        <option value="">Выберите статус</option>
+                        <option value="В процессе">В процессе</option>
+                        <option value="Доставлен">Доставлен</option>
+                    </select>
+                </td>
+            </tr>
+            <tr class="form-group">
+                <td>Комментарий:</td>
+                <td>
+                    <textarea cols="50" rows="7" name="remark" required="required"></textarea>
                 </td>
             </tr>
             <tr>
-                <td class="fontkink1">Комментарий:</td>
-                <td class="fontkink" align="justify">
-                    <span class="fontkink">
-                        <textarea cols="50" rows="7" name="remark" required="required"></textarea>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="fontkink1">&nbsp;</td>
-                <td>&nbsp;</td>
-            </tr>
-            <tr>
-                <td class="fontkink"></td>
-                <td class="fontkink">
-                    <input type="submit" name="submit2" value="Обновить" size="40" style="cursor: pointer;" />
-                    &nbsp;&nbsp;
-                    <input name="Submit2" type="button" class="txtbox4" value="Закрыть это окно" onClick="closeWindow();" style="cursor: pointer;" />
+                <td></td>
+                <td>
+                    <input type="submit" name="submit2" value="Обновить" class="btn" />
+                    <input name="Submit2" type="button" class="btn btn-close" value="Закрыть это окно" onClick="closeWindow();" />
                 </td>
             </tr>
             <?php } ?>

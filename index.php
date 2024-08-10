@@ -158,14 +158,9 @@ if(isset($_GET['action']) && $_GET['action']=="add"){
             </div><!-- /.row -->
 
             <!-- ============================================== SCROLL TABS ============================================== -->
-            <div id="product-tabs-slider" class="scroll-tabs inner-bottom-vs  wow fadeInUp" style="margin-top: 10px">
+            <div id="product-tabs-slider" class="scroll-tabs inner-bottom-vs  wow fadeInUp" style="margin-top: 25px">
                 <div class="more-info-tab clearfix">
                    <h3 class="new-product-title pull-left">Рекомендуемые продукты</h3>
-                    <ul class="nav nav-tabs nav-tab-line pull-right" id="new-products-1">
-                        <li class="active"><a href="#all" data-toggle="tab">Все</a></li>
-                        <li><a href="#Смесители" data-toggle="tab">Смесители</a></li>
-                        <li><a href="#furniture" data-toggle="tab">Бойлер</a></li>
-                    </ul><!-- /.nav-tabs -->
                 </div>
 
                 <div class="tab-content outer-top-xs">

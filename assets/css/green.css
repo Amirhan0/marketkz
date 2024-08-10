@@ -86,7 +86,7 @@ a {
 
 .header-style-2 .header-nav .navbar-default .navbar-collapse .navbar-nav>li>a:hover,
 .header-style-2 .header-nav .navbar-default .navbar-collapse .navbar-nav>li>a:focus {
-  background: #abd07e !important;
+  background: #7ea3d0 !important;
 }
 
 .header-style-2 .header-nav .navbar-default .navbar-collapse .navbar-nav>li.open {
@@ -337,12 +337,12 @@ a {
 
 .cart .action ul .lnk .add-to-cart:hover,
 .cart .action ul .lnk .add-to-cart:focus {
-  color: #abd07e !important;
+  color: #7ea3d0 !important;
 }
 
 .cart .action .add-to-cart:hover,
 .cart .action .add-to-cart:focus {
-  color: #abd07e !important;
+  color: #7ea3d0 !important;
 }
 
 .homepage-container .product .tag.hot {
@@ -380,12 +380,12 @@ a {
 }
 
 #owl-single-product-thumbnails .owl-controls .owl-pagination .owl-page.active span {
-  background: #abd07e !important;
+  background: #7ea3d0 !important;
 }
 
 #owl-single-product-thumbnails .owl-controls .owl-pagination .owl-page span:hover,
 #owl-single-product-thumbnails .owl-controls .owl-pagination .owl-page span:focus {
-  background: #abd07e !important;
+  background: #7ea3d0 !important;
 }
 
 .cnt-homepage .sidebar .sidebar-module-container .sidebar-widget .sidebar-widget-body .price-range-holder .slider .slider-track .slider-handle.max-slider-handle {
