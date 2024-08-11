@@ -62,7 +62,7 @@
         <ul class="widget widget-menu unstyled">
             <li><a href="category.php"><i class="menu-icon icon-tasks"></i> Создать категорию </a></li>
             <li><a href="subcategory.php"><i class="menu-icon icon-tasks"></i> Подкатегория </a></li>
-            <li><a href="insert-product.php"><i class="menu-icon icon-paste"></i> Вставить продукт </a></li>
+            <li><a href="insert-product.php"><i class="menu-icon icon-paste"></i> Создать продукт </a></li>
             <li><a href="manage-products.php"><i class="menu-icon icon-table"></i> Управление продуктами </a></li>
         </ul><!--/.widget-nav-->
 

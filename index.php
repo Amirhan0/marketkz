@@ -71,7 +71,6 @@ function getExchangeRate()
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="assets/images/favicon.ico">
-
 </head>
 
 <body class="cnt-home">
@@ -140,7 +139,7 @@ function getExchangeRate()
                                                     <i class="icon fa fa-truck"></i>
                                                 </div>
                                                 <div class="col-xs-10">
-                                                    <h4 class="info-box-heading orange">Доставка</h4>
+                                                    <h4 class="info-box-heading orange"> Доставка</h4>
                                                 </div>
                                             </div>
                                             <h6 class="text">Бесплатная доставка при заказе на сумму более 600.000</h6>

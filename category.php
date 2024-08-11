@@ -128,7 +128,6 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
                     </div><!-- /.side-menu -->
                     <!-- ================================== ВЕРХНЯЯ НАВИГАЦИЯ : КОНЕЦ ================================== -->
                     <div class="sidebar-module-container">
-                        <h3 class="section-title">покупать по</h3>
                         <div class="sidebar-filter">
                             <!-- ============================================== САЙДБАР КАТЕГОРИЯ ============================================== -->
                             <div class="sidebar-widget wow fadeInUp outer-bottom-xs ">
@@ -199,41 +198,45 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
                                                                         <?php echo htmlentities($row['productName']); ?>
                                                                     </a>
                                                                 </h3>
-                                                                <div class="rating rateit-small"></div>
                                                                 <div class="description"></div>
 
                                                                 <div class="product-price">
                                                                     <span class="price">
-                                                                        ₸. <?php echo htmlentities($row['productPrice']); ?>
+                                                                     <?php echo htmlentities($row['productPrice']); ?> ₸
                                                                     </span>
                                                                     <span class="price-before-discount">
-                                                                        ₸. <?php echo htmlentities($row['productPriceBeforeDiscount']); ?>
+                                                                        <?php echo htmlentities($row['productPriceBeforeDiscount']); ?>
                                                                     </span>
                                                                 </div><!-- /.product-price -->
                                                             </div><!-- /.product-info -->
                                                             <div class="cart clearfix animate-effect">
-                                                                <div class="action">
-                                                                    <ul class="list-unstyled">
-                                                                        <li class="add-cart-button btn-group">
-                                                                            <?php if ($row['productAvailability'] == 'В наличии') { ?>
-                                                                                <button class="btn btn-primary icon" data-toggle="dropdown" type="button">
-                                                                                    <i class="fa fa-shopping-cart"></i>
-                                                                                </button>
-                                                                                <a href="category.php?page=product&action=add&id=<?php echo $row['id']; ?>">
-                                                                                    <button class="btn btn-primary" type="button">Добавить в корзину</button>
-                                                                                </a>
-                                                                            <?php } else { ?>
-                                                                                <div class="action" style="color:red">Нет в наличии</div>
-                                                                            <?php } ?>
-                                                                        </li>
-                                                                        <li class="lnk wishlist">
-                                                                            <a class="add-to-cart" href="category.php?pid=<?php echo htmlentities($row['id']) ?>&&action=wishlist" title="Wishlist">
-                                                                                <i class="icon fa fa-heart"></i>
-                                                                            </a>
-                                                                        </li>
-                                                                    </ul>
-                                                                </div><!-- /.action -->
-                                                            </div><!-- /.cart -->
+    <div class="action">
+        <ul class="list-unstyled">
+            <li class="add-cart-button btn-group">
+                <?php if ($row['productAvailability'] == 'В наличии') { ?>
+                    <!-- Shopping cart icon that adds the product to the cart -->
+                    <a href="category.php?page=product&action=add&id=<?php echo $row['id']; ?>">
+                        <button class="btn btn-primary icon" type="button" style='margin-right: 8px'>
+                            <i class="fa fa-shopping-cart"></i>
+                        </button>
+                    </a>
+                    <!-- View product button -->
+                    <a href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
+                        <button class="btn btn-primary" type="button" style='outline: none'>Просмотреть</button>
+                    </a>
+                <?php } else { ?>
+                    <div class="action" style="color:red">Нет в наличии</div>
+                <?php } ?>
+            </li>
+            <li class="lnk wishlist">
+                <a class="add-to-cart" href="category.php?pid=<?php echo htmlentities($row['id']) ?>&&action=wishlist" title="Wishlist">
+                    <i class="icon fa fa-heart"></i>
+                </a>
+            </li>
+        </ul>
+    </div><!-- /.action -->
+</div><!-- /.cart -->
+
                                                         </div>
                                                     </div>
                                                 </div>

@@ -6,7 +6,7 @@ if(strlen($_SESSION['alogin'])==0)
 header('location:index.php');
 }
 else{
-date_default_timezone_set('Asia/Kolkata'); // измените в соответствии с вашим часовым поясом
+date_default_timezone_set('Asia/Almaty'); // измените в соответствии с вашим часовым поясом
 $currentTime = date('d-m-Y h:i:s A', time());
 
 if(isset($_POST['submit']))

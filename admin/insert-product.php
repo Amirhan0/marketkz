@@ -176,7 +176,7 @@ if (strlen($_SESSION['alogin']) == 0) {
                                         <div class="control-group">
                                             <label class="control-label" for="basicinput">Цена продукта в тенге</label>
                                             <div class="controls">
-                                                <input type="text" name="productprice" id="productprice" placeholder="Введите цену продукта" class="span8 tip" readonly required>
+                                                <input type="text" name="productprice" id="productprice" placeholder="Цена продукта в тенге" class="span8 tip" readonly required>
                                             </div>
                                         </div>
 

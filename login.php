@@ -198,14 +198,6 @@ function valid() {
                         <h4 class="">Войти</h4>
                         <p class="">Здравствуйте, Добро пожаловать в ваш аккаунт.</p>
                         <form class="register-form outer-top-xs" method="post">
-                            <span style="color:red;">
-                                <?php
-                                echo htmlentities($_SESSION['errmsg']);
-                                ?>
-                                <?php
-                                echo htmlentities($_SESSION['errmsg'] = "");
-                                ?>
-                            </span>
                             <div class="form-group">
                                 <label class="info-title" for="exampleInputEmail1">Адрес электронной почты <span>*</span></label>
                                 <input type="email" name="email" class="form-control unicase-form-control text-input" id="exampleInputEmail1">
@@ -215,9 +207,17 @@ function valid() {
                                 <input type="password" name="password" class="form-control unicase-form-control text-input" id="exampleInputPassword1">
                             </div>
                             <div class="radio outer-xs">
+                            <span style="color:red;">
+                                <?php
+                                echo htmlentities($_SESSION['errmsg']);
+                                ?>
+                                <?php
+                                echo htmlentities($_SESSION['errmsg'] = "");
+                                ?>
+                            </span>
                                 <a href="forgot-password.php" class="forgot-password pull-right">Забыли пароль?</a>
                             </div>
-                            <button type="submit" class="btn-upper btn btn-primary checkout-page-button" name="login">Войти</button>
+                            <button type="submit" class="btn-upper btn btn-primary checkout-page-button" name="login">Войти</button>  
                         </form>                    
                     </div>
                     <!-- Sign-in -->
