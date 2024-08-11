@@ -1,3 +1,21 @@
+<?php 
+session_start();
+error_reporting(0);
+include('includes/config.php');
+if(strlen($_SESSION['login'])==0)
+    {   
+header('location:login.php');
+}
+else{
+	if (isset($_GET['id'])) {
+
+		mysqli_query($con,"delete from orders  where userId='".$_SESSION['id']."' and paymentMethod is null and id='".$_GET['id']."' ");
+		;
+
+	}
+
+?>
+
 <!DOCTYPE html>
 <html lang="ru">
 	<head>
@@ -98,8 +116,7 @@
 			
 			<tbody>
 
-<?php 
-$query=mysqli_query($con,"select products.productImage1 as pimg1, products.productName as pname, products.id as c, orders.productId as opid, orders.quantity as qty, products.productPrice as pprice, products.shippingCharge as shippingcharge, orders.paymentMethod as paym, orders.orderDate as odate, orders.id as oid from orders join products on orders.productId=products.id where orders.userId='".$_SESSION['id']."' and orders.paymentMethod is null");
+<?php $query=mysqli_query($con,"select products.productImage1 as pimg1,products.productName as pname,products.id as c,orders.productId as opid,orders.quantity as qty,products.productPrice as pprice,products.shippingCharge as shippingcharge,orders.paymentMethod as paym,orders.orderDate as odate,orders.id as oid from orders join products on orders.productId=products.id where orders.userId='".$_SESSION['id']."' and orders.paymentMethod is null");
 $cnt=1;
 $num=mysqli_num_rows($query);
 if($num>0)
@@ -129,7 +146,7 @@ while($row=mysqli_fetch_array($query))
 					<td class="cart-product-sub-total"><?php echo $row['paym']; ?>  </td>
 					<td class="cart-product-sub-total"><?php echo $row['odate']; ?>  </td>
 					
-					<td><a href="pending-orders.php?id=<?php echo $row['oid']; ?> ">Удалить</a></td>
+					<td><a href="pending-orders.php?id=<?php echo $row['oid']; ?> ">Удалить</td>
 				</tr>
 <?php $cnt=$cnt+1;} ?>
 <tr>
@@ -156,7 +173,6 @@ while($row=mysqli_fetch_array($query))
 		</div> <!-- /.row -->
 		</form>
 		<!-- ============================================== Слайдер брендов ============================================== -->
-<?php echo include('includes/brands-slider.php');?>
 <!-- ============================================== Слайдер брендов : КОНЕЦ ============================================== -->	</div><!-- /.container -->
 </div><!-- /.body-content -->
 <?php include('includes/footer.php');?>
@@ -177,13 +193,13 @@ while($row=mysqli_fetch_array($query))
     <script src="assets/js/wow.min.js"></script>
 	<script src="assets/js/scripts.js"></script>
 
-	<!-- Для демонстрационных целей – можно удалить в продакшене -->
+	<!-- Только для демонстрации. Должно быть удалено в продакшене -->
 	
 	<script src="switchstylesheet/switchstylesheet.js"></script>
 	
 	<script>
 		$(document).ready(function(){ 
-			$(".changecolor").switchstylesheet( { seperator:"color"} );
+			 $(".changecolor").switchstylesheet( { seperator:"color"} );
 			$('.show-theme-options').click(function(){
 				$(this).parent().toggleClass('open');
 				return false;
@@ -194,7 +210,7 @@ while($row=mysqli_fetch_array($query))
 		   $('.show-theme-options').delay(2000).trigger('click');
 		});
 	</script>
-	<!-- Для демонстрационных целей – можно удалить в продакшене : Конец -->
+	<!-- Только для демонстрации. Должно быть удалено в продакшене : КОНЕЦ -->
 </body>
 </html>
 <?php } ?>

@@ -111,7 +111,7 @@ if(isset($_POST['login']))
 }
 
 function validateKazakhstanPhoneNumber(phoneNumber) {
-    let pattern = /^(\+7|8)?\d{10}$/;
+    let pattern = /^(\+7|8)?\d{11}$/;
     return pattern.test(phoneNumber);
 }
 
@@ -240,7 +240,7 @@ function valid() {
 
                             <div class="form-group">
                                 <label class="info-title" for="contactno">Контактный номер <span>*</span></label>
-                                <input type="text" class="form-control unicase-form-control text-input" id="contactno" name="contactno" maxlength="10" required>
+                                <input type="text" class="form-control unicase-form-control text-input" id="contactno" name="contactno" maxlength="11" required>
                             </div>
 
                             <div class="form-group">

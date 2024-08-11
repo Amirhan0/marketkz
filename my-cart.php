@@ -219,15 +219,11 @@ if (isset($_POST['shipupdate'])) {
                                                             <h4 class='cart-product-description'><a href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>"><?php echo $row['productName']; ?></a></h4>
                                                             <div class="row">
                                                                 <div class="col-sm-4">
-                                                                    <div class="rating rateit-small"></div>
                                                                 </div>
                                                                 <div class="col-sm-8">
                                                                     <?php $rt = mysqli_query($con, "select * from productreviews where productId='" . $row['id'] . "'");
                                                                     $num = mysqli_num_rows($rt); {
                                                                     ?>
-                                                                        <div class="reviews">
-                                                                            (<?php echo htmlentities($num); ?> Отзывы)
-                                                                        </div>
                                                                     <?php } ?>
                                                                 </div>
                                                             </div><!-- /.row -->
