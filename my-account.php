@@ -18,7 +18,7 @@ if (strlen($_SESSION['login']) == 0) {
     }
 
     // Установка временной зоны и получение текущего времени
-    date_default_timezone_set('Asia/Kolkata'); // Измените в соответствии с вашей временной зоной
+    date_default_timezone_set('Asia/Almaty'); // Измените в соответствии с вашей временной зоной
     $currentTime = date('d-m-Y h:i:s A', time());
 
     // Обработка формы смены пароля

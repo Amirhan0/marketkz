@@ -262,7 +262,7 @@ if (isset($_POST['submit'])) {
 										<div class="row">
 											<div class="col-sm-6">
 												<div class="price-box">
-													<span class="price">₸. <?php echo htmlentities($row['productPrice']); ?></span>
+													<span class="price"> <?php echo htmlentities($row['productPrice']); ?> ₸</span>
 
 												</div>
 											</div>
@@ -371,7 +371,7 @@ if (isset($_POST['submit'])) {
 									<div class="description"></div>
 									<div class="product-price">
 										<span class="price">
-											₸.<?php echo htmlentities($rw['productPrice']); ?>
+											<?php echo htmlentities($rw['productPrice']); ?> ₸
 										</span>
 
 									</div><!-- /.product-price -->
@@ -400,7 +400,6 @@ if (isset($_POST['submit'])) {
 		</div><!-- /.col -->
 		<div class="clearfix"></div>
 	</div>
-	<?php include('includes/brands-slider.php'); ?>
 	</div>
 	</div>
 	<?php include('includes/footer.php'); ?>

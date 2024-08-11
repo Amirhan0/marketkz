@@ -145,7 +145,7 @@ if(isset($_GET['pid']) && $_GET['action']=="wishlist" ){
                 <div id="category" class="category-carousel hidden-xs">
                     <div class="item">    
                         <div class="image">
-                            <img src="assets/images/banners/cat-banner-2.jpg" alt="" class="img-responsive">
+                            <img src="assets/images/banners/original.jpg" alt="" class="img-responsive">
                         </div>
                         <div class="container-fluid">
                             <div class="caption vertical-top text-left">

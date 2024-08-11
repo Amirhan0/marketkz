@@ -171,7 +171,6 @@ function valid() {
 
             </div><!-- /.row -->
         </div>
-        <?php include('includes/brands-slider.php');?>
     </div>
 </div>
 <?php include('includes/footer.php');?>
