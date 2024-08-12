@@ -14,12 +14,12 @@ if(isset($_POST['submit']))
 	$productname=$_POST['productName'];
 	$productcompany=$_POST['productCompany'];
 	$productprice=$_POST['productprice'];
-	$productpricebd=$_POST['productpricebd'];
+//	$productpricebd=$_POST['productpricebd']; //
 	$productdescription=$_POST['productDescription'];
 	$productscharge=$_POST['productShippingcharge'];
 	$productavailability=$_POST['productAvailability'];
 	
-$sql=mysqli_query($con,"update products set category='$category',subCategory='$subcat',productName='$productname',productCompany='$productcompany',productPrice='$productprice',productDescription='$productdescription',shippingCharge='$productscharge',productAvailability='$productavailability',productPriceBeforeDiscount='$productpricebd' where id='$pid'");
+$sql=mysqli_query($con,"update products set category='$category',subCategory='$subcat',productName='$productname',productCompany='$productcompany',productPrice='$productprice',productDescription='$productdescription',shippingCharge='$productscharge',productAvailability='$productavailability' where id='$pid'");
 $_SESSION['msg']="Продукт успешно обновлен!";
 
 }
@@ -53,6 +53,19 @@ function selectCountry(val) {
 $("#search-box").val(val);
 $("#suggesstion-box").hide();
 }
+async function fetchExchangeRate() {
+                const response = await fetch('https://api.exchangerate-api.com/v4/latest/USD');
+                const data = await response.json();
+                return data.rates.KZT; // Получаем курс доллара к тенге
+            }
+
+            async function convertToTenge() {
+                const exchangeRate = await fetchExchangeRate();
+                let dollarPrice = document.getElementById('productpriceDollar').value;
+                let tengePrice = dollarPrice * exchangeRate;
+                document.getElementById('productprice').value = tengePrice.toFixed(2);
+            }
+
 </script>	
 
 
@@ -145,18 +158,25 @@ while($rw=mysqli_fetch_array($query))
 <input type="text" name="productCompany" placeholder="Введите название компании" value="<?php echo htmlentities($row['productCompany']);?>" class="span8 tip" required>
 </div>
 </div>
-<div class="control-group">
+<!-- <div class="control-group">
 <label class="control-label" for="basicinput">Цена продукта до скидки</label>
 <div class="controls">
-<input type="text" name="productpricebd" placeholder="Введите цену продукта" value="<?php echo htmlentities($row['productPriceBeforeDiscount']);?>" class="span8 tip" required>
+<input type="text" name="productpricebd" placeholder="Введите цену продукта" value=" class="span8 tip" required>
 </div>
+</div> -->
+
+<div class="control-group">
+    <label class="control-label" for="basicinput">Цена продукта в долларах</label>
+    <div class="controls">
+        <input type="text" name="productpriceDollar" id="productpriceDollar" placeholder="Введите цену продукта в долларах" class="span8 tip" oninput="convertToTenge()" value="<?php echo isset($_POST['productpriceDollar']) ? htmlentities($_POST['productpriceDollar']) : ''; ?>" required>
+    </div>
 </div>
 
 <div class="control-group">
-<label class="control-label" for="basicinput">Цена продукта</label>
-<div class="controls">
-<input type="text" name="productprice" placeholder="Введите цену продукта" value="<?php echo htmlentities($row['productPrice']);?>" class="span8 tip" required>
-</div>
+    <label class="control-label" for="basicinput">Цена продукта в тенге</label>
+    <div class="controls">
+        <input type="text" name="productprice" id="productprice" placeholder="Цена продукта в тенге" class="span8 tip" value="<?php echo isset($_POST['productprice']) ? htmlentities($_POST['productprice']) : ''; ?>" readonly required>
+    </div>
 </div>
 
 <div class="control-group">
