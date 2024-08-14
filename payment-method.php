@@ -187,7 +187,14 @@ $orders = mysqli_query($con, "select * from orders where userId='" . $_SESSION['
 				imageUrl: "./qr.png",
 				imageWidth: 500,
 				imageHeight: 300,
-				imageAlt: "Custom image"
+				imageAlt: "Custom image",
+				width: '600px', // Увеличение ширины окна
+    padding: '20px', // Увеличение внутреннего отступа
+    didOpen: () => {
+        // Прямое изменение стилей заголовка и текста при открытии
+        document.querySelector('.swal2-title').style.fontSize = '24px';
+        document.querySelector('.swal2-html-container').style.fontSize = '18px';
+    }
 			}).then((result) => {
 				if (result.isConfirmed) {
 					window.location.href = "./order-history.php";
@@ -201,17 +208,24 @@ $orders = mysqli_query($con, "select * from orders where userId='" . $_SESSION['
 	<?php if ($nal == true) { ?>
 		<script>
 			Swal.fire({
-				title: "<?php echo $_SESSION['tp'] ?>тг",
-				text: "Оплата наличными происходит исключительно в городе Алматы",
-				imageUrl: "https://diapazon.kz/images/2023/04/12/VaWPMUCJBh_a4_710x444.jpeg",
-				imageWidth: 500,
-				imageHeight: 300,
-				imageAlt: "Custom image"
-			}).then((result) => {
-				if (result.isConfirmed) {
-					window.location.href = "./order-history.php";
-				}
-			});
+    title: "<?php echo $_SESSION['tp'] ?>тг",
+    text: "Оплата наличными происходит исключительно в городе Алматы",
+    imageUrl: "https://png.pngtree.com/png-vector/20190811/ourlarge/pngtree-finance-investment-payment-money-dollar-flat-color-icon-vect-png-image_1656430.jpg",
+    imageWidth: 500,
+    imageHeight: 300,
+    imageAlt: "Custom image",
+    width: '600px', // Увеличение ширины окна
+    padding: '20px', // Увеличение внутреннего отступа
+    didOpen: () => {
+        // Прямое изменение стилей заголовка и текста при открытии
+        document.querySelector('.swal2-title').style.fontSize = '24px';
+        document.querySelector('.swal2-html-container').style.fontSize = '18px';
+    }
+}).then((result) => {
+    if (result.isConfirmed) {
+        window.location.href = "./order-history.php";
+    }
+});
 		</script>
 	<?php
 		$nal = false;
