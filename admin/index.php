@@ -2,36 +2,33 @@
 session_start();
 error_reporting(0);
 include("include/config.php");
-if(isset($_POST['submit']))
-{
-	$username=$_POST['username'];
-	$password=$_POST['password'];
-$ret=mysqli_query($con,"SELECT * FROM admin WHERE username='$username' and password='$password'");
-$num=mysqli_fetch_array($ret);
-if($num>0)
-{
-$extra="change-password.php";//
-$_SESSION['alogin']=$_POST['username'];
-$_SESSION['id']=$num['id'];
-$host=$_SERVER['HTTP_HOST'];
-$uri=rtrim(dirname($_SERVER['PHP_SELF']),'/\\');
-header("location:http://$host$uri/$extra");
-exit();
-}
-else
-{
-$_SESSION['errmsg']="Неверное имя пользователя или пароль"; // Неверное имя пользователя или пароль
-$extra="index.php";
-$host  = $_SERVER['HTTP_HOST'];
-$uri  = rtrim(dirname($_SERVER['PHP_SELF']),'/\\');
-header("location:http://$host$uri/$extra");
-exit();
-}
+if (isset($_POST['submit'])) {
+	$username = $_POST['username'];
+	$password = $_POST['password'];
+	$ret = mysqli_query($con, "SELECT * FROM admin WHERE username='$username' and password='$password'");
+	$num = mysqli_fetch_array($ret);
+	if ($num > 0) {
+		$extra = "todays-orders.php"; //
+		$_SESSION['alogin'] = $_POST['username'];
+		$_SESSION['id'] = $num['id'];
+		$host = $_SERVER['HTTP_HOST'];
+		$uri = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
+		header("location:http://$host$uri/$extra");
+		exit();
+	} else {
+		$_SESSION['errmsg'] = "Неверное имя пользователя или пароль"; // Неверное имя пользователя или пароль
+		$extra = "index.php";
+		$host  = $_SERVER['HTTP_HOST'];
+		$uri  = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
+		header("location:http://$host$uri/$extra");
+		exit();
+	}
 }
 ?>
 
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -42,6 +39,7 @@ exit();
 	<link type="text/css" href="images/icons/css/font-awesome.css" rel="stylesheet">
 	<link type="text/css" href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600' rel='stylesheet'>
 </head>
+
 <body>
 
 	<div class="navbar navbar-fixed-top">
@@ -51,15 +49,15 @@ exit();
 					<i class="icon-reorder shaded"></i>
 				</a>
 
-			  	<a class="brand" href="index.html">
-				 ОПТО МАРКЕТ | Администратор
-			  	</a>
+				<a class="brand" href="index.html">
+					ОПТО МАРКЕТ | Администратор
+				</a>
 
 				<div class="nav-collapse collapse navbar-inverse-collapse">
 					<ul class="nav pull-right">
 						<li><a href="http://localhost/shopping/">
-						Вернуться на портал
-						</a></li>
+								Вернуться на портал
+							</a></li>
 					</ul>
 				</div><!-- /.nav-collapse -->
 			</div>
@@ -74,7 +72,7 @@ exit();
 						<div class="module-head">
 							<h3>Вход</h3>
 						</div>
-						<span style="color:red;"><?php echo htmlentities($_SESSION['errmsg']); ?><?php echo htmlentities($_SESSION['errmsg']="");?></span>
+						<span style="color:red;"><?php echo htmlentities($_SESSION['errmsg']); ?><?php echo htmlentities($_SESSION['errmsg'] = ""); ?></span>
 						<div class="module-body">
 							<div class="control-group">
 								<div class="controls row-fluid">
@@ -83,7 +81,7 @@ exit();
 							</div>
 							<div class="control-group">
 								<div class="controls row-fluid">
-						<input class="span12" type="password" id="inputPassword" name="password" placeholder="Пароль">
+									<input class="span12" type="password" id="inputPassword" name="password" placeholder="Пароль">
 								</div>
 							</div>
 						</div>
@@ -109,4 +107,5 @@ exit();
 	<script src="scripts/jquery-ui-1.10.1.custom.min.js" type="text/javascript"></script>
 	<script src="bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
 </body>
+
 </html>

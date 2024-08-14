@@ -200,163 +200,164 @@ function getExchangeRate()
                                                         <div class="description"></div>
                                                         <div class="product-price">
                                                             <span class="price"><?php echo number_format($priceInTenge, 2); ?> ₸.</span>
+                                                            <span style="opacity: 50%;""><?php echo $row['productPrice'] ?>$</span>
                                                         </div><!-- /.product-price -->
                                                     </div><!-- /.product-info -->
 
-                                                    <div class="cart clearfix animate-effect">
-                                                        <div class="action">
-                                                            <ul class="list-unstyled">
-                                                                <li class="add-cart-button btn-group">
-                                                                    <a href="index.php?action=add&id=<?php echo $row['id']; ?>" class="btn btn-primary icon" data-toggle="tooltip" data-placement="top" title="Добавить в корзину">
-                                                                        <i class="fa fa-shopping-cart"></i>
-                                                                    </a>
-                                                                    <a href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>" class="btn btn-primary">Просмотреть</a>
-                                                                </li>
-                                                            </ul>
-                                                        </div><!-- /.action -->
-                                                    </div><!-- /.cart -->
-                                                </div><!-- /.product -->
-                                            </div><!-- /.products -->
-                                        </div><!-- /.item -->
-                                    <?php } ?>
+                                                    <div class=" cart clearfix animate-effect">
+                                                                <div class="action">
+                                                                    <ul class="list-unstyled">
+                                                                        <li class="add-cart-button btn-group">
+                                                                            <a href="index.php?action=add&id=<?php echo $row['id']; ?>" class="btn btn-primary icon" data-toggle="tooltip" data-placement="top" title="Добавить в корзину">
+                                                                                <i class="fa fa-shopping-cart"></i>
+                                                                            </a>
+                                                                            <a href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>" class="btn btn-primary">Просмотреть</a>
+                                                                        </li>
+                                                                    </ul>
+                                                                </div><!-- /.action -->
+                                                        </div><!-- /.cart -->
+                                                    </div><!-- /.product -->
+                                                </div><!-- /.products -->
+                                            </div><!-- /.item -->
+                                        <?php } ?>
 
-                                </div><!-- /.owl-carousel -->
-                            </div><!-- /.product-slider -->
-                        </div><!-- /.tab-pane -->
+                                        </div><!-- /.owl-carousel -->
+                                </div><!-- /.product-slider -->
+                            </div><!-- /.tab-pane -->
 
-                        <div class="tab-pane" id="Смесители">
-                            <div class="product-slider">
-                                <div class="owl-carousel home-owl-carousel custom-carousel owl-theme" data-item="4">
-                                    <?php
-                                    $ret = mysqli_query($con, "select * from products where category='Смесители'");
-                                    while ($row = mysqli_fetch_array($ret)) {
-                                        # code...
-                                    ?>
-                                        <div class="item item-carousel">
-                                            <div class="products">
+                            <div class="tab-pane" id="Смесители">
+                                <div class="product-slider">
+                                    <div class="owl-carousel home-owl-carousel custom-carousel owl-theme" data-item="4">
+                                        <?php
+                                        $ret = mysqli_query($con, "select * from products where category='Смесители'");
+                                        while ($row = mysqli_fetch_array($ret)) {
+                                            # code...
+                                        ?>
+                                            <div class="item item-carousel">
+                                                <div class="products">
 
-                                                <div class="product">
-                                                    <div class="product-image">
-                                                        <div class="image">
-                                                            <a href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
-                                                                <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>" data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>" style='object-fit:cover' width='100px' height='100px' alt=""></a>
-                                                        </div><!-- /.image -->
-
-
-                                                    </div><!-- /.product-image -->
+                                                    <div class="product">
+                                                        <div class="product-image">
+                                                            <div class="image">
+                                                                <a href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
+                                                                    <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>" data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>" style='object-fit:cover' width='100px' height='100px' alt=""></a>
+                                                            </div><!-- /.image -->
 
 
-                                                    <div class="product-info text-left">
-                                                        <h3 class="name"><a href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>"><?php echo htmlentities($row['productName']); ?></a></h3>
-                                                        <div class="description"></div>
-                                                        <div class="product-price">
-                                                            <span class="price"><?php echo htmlentities($row['productPrice']); ?> ₸.</span>
-                                                        </div><!-- /.product-price -->
-
-                                                    </div><!-- /.product-info -->
-
-                                                    <div class="cart clearfix animate-effect">
-                                                        <div class="action">
-                                                            <ul class="list-unstyled">
-                                                                <li class="add-cart-button btn-group">
-                                                                    <a href="index.php?action=add&id=<?php echo $row['id']; ?>" class="btn btn-primary icon" data-toggle="tooltip" data-placement="top" title="Добавить в корзину">
-                                                                        <i class="fa fa-shopping-cart"></i>
-                                                                    </a>
-                                                                    <a href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>" class="btn btn-primary">Просмотреть</a>
-                                                                </li>
-                                                            </ul>
-                                                        </div><!-- /.action -->
-                                                    </div><!-- /.cart -->
-                                                </div><!-- /.product -->
-
-                                            </div><!-- /.products -->
-                                        </div><!-- /.item -->
-                                    <?php } ?>
-                                </div><!-- /.owl-carousel -->
-                            </div><!-- /.product-slider -->
-                        </div><!-- /.tab-pane -->
-
-                        <div class="tab-pane" id="furniture">
-                            <div class="product-slider">
-                                <div class="owl-carousel home-owl-carousel custom-carousel owl-theme" data-item="4">
-                                    <?php
-                                    $ret = mysqli_query($con, "select * from products where category='Furniture'");
-                                    while ($row = mysqli_fetch_array($ret)) {
-                                        # code...
-                                    ?>
-                                        <div class="item item-carousel">
-                                            <div class="products">
-                                                <div class="product">
-                                                    <div class="product-image">
-                                                        <div class="image">
-                                                            <a href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
-                                                                <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>" data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>" width="100" height="100" alt=""></a>
-                                                        </div><!-- /.image -->
+                                                        </div><!-- /.product-image -->
 
 
-                                                    </div><!-- /.product-image -->
+                                                        <div class="product-info text-left">
+                                                            <h3 class="name"><a href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>"><?php echo htmlentities($row['productName']); ?></a></h3>
+                                                            <div class="description"></div>
+                                                            <div class="product-price">
+                                                                <span class="price"><?php echo htmlentities($row['productPrice']); ?> ₸.</span>
+                                                            </div><!-- /.product-price -->
+
+                                                        </div><!-- /.product-info -->
+
+                                                        <div class="cart clearfix animate-effect">
+                                                            <div class="action">
+                                                                <ul class="list-unstyled">
+                                                                    <li class="add-cart-button btn-group">
+                                                                        <a href="index.php?action=add&id=<?php echo $row['id']; ?>" class="btn btn-primary icon" data-toggle="tooltip" data-placement="top" title="Добавить в корзину">
+                                                                            <i class="fa fa-shopping-cart"></i>
+                                                                        </a>
+                                                                        <a href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>" class="btn btn-primary">Просмотреть</a>
+                                                                    </li>
+                                                                </ul>
+                                                            </div><!-- /.action -->
+                                                        </div><!-- /.cart -->
+                                                    </div><!-- /.product -->
+
+                                                </div><!-- /.products -->
+                                            </div><!-- /.item -->
+                                        <?php } ?>
+                                    </div><!-- /.owl-carousel -->
+                                </div><!-- /.product-slider -->
+                            </div><!-- /.tab-pane -->
+
+                            <div class="tab-pane" id="furniture">
+                                <div class="product-slider">
+                                    <div class="owl-carousel home-owl-carousel custom-carousel owl-theme" data-item="4">
+                                        <?php
+                                        $ret = mysqli_query($con, "select * from products where category='Furniture'");
+                                        while ($row = mysqli_fetch_array($ret)) {
+                                            # code...
+                                        ?>
+                                            <div class="item item-carousel">
+                                                <div class="products">
+                                                    <div class="product">
+                                                        <div class="product-image">
+                                                            <div class="image">
+                                                                <a href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
+                                                                    <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>" data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>" width="100" height="100" alt=""></a>
+                                                            </div><!-- /.image -->
 
 
-                                                    <div class="product-info text-left">
-                                                        <h3 class="name"><a href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>"><?php echo htmlentities($row['productName']); ?></a></h3>
-                                                        <div class="description"></div>
-                                                        <div class="product-price">
-                                                            <span class="price"><?php echo htmlentities($row['productPrice']); ?> ₸.</span>
-                                                        </div><!-- /.product-price -->
+                                                        </div><!-- /.product-image -->
 
-                                                    </div><!-- /.product-info -->
 
-                                                    <div class="cart clearfix animate-effect">
-                                                        <div class="action">
-                                                            <ul class="list-unstyled">
-                                                                <li class="add-cart-button btn-group">
-                                                                    <a href="index.php?action=add&id=<?php echo $row['id']; ?>" class="btn btn-primary icon" data-toggle="tooltip" data-placement="top" title="Добавить в корзину">
-                                                                        <i class="fa fa-shopping-cart"></i>
-                                                                    </a>
-                                                                    <a href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>" class="btn btn-primary">Просмотреть</a>
-                                                                </li>
-                                                            </ul>
-                                                        </div><!-- /.action -->
-                                                    </div><!-- /.cart -->
-                                                </div><!-- /.product -->
+                                                        <div class="product-info text-left">
+                                                            <h3 class="name"><a href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>"><?php echo htmlentities($row['productName']); ?></a></h3>
+                                                            <div class="description"></div>
+                                                            <div class="product-price">
+                                                                <span class="price"><?php echo htmlentities($row['productPrice']); ?> ₸.</span>
+                                                            </div><!-- /.product-price -->
 
-                                            </div><!-- /.products -->
-                                        </div><!-- /.item -->
-                                    <?php } ?>
-                                </div><!-- /.owl-carousel -->
-                            </div><!-- /.product-slider -->
-                        </div><!-- /.tab-pane -->
+                                                        </div><!-- /.product-info -->
 
-                    </div><!-- /.tab-content -->
-                </div><!-- /.scroll-tabs -->
-            </div><!-- /.furniture-container -->
-        </div><!-- /.container -->
-    </div><!-- /.body-content -->
+                                                        <div class="cart clearfix animate-effect">
+                                                            <div class="action">
+                                                                <ul class="list-unstyled">
+                                                                    <li class="add-cart-button btn-group">
+                                                                        <a href="index.php?action=add&id=<?php echo $row['id']; ?>" class="btn btn-primary icon" data-toggle="tooltip" data-placement="top" title="Добавить в корзину">
+                                                                            <i class="fa fa-shopping-cart"></i>
+                                                                        </a>
+                                                                        <a href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>" class="btn btn-primary">Просмотреть</a>
+                                                                    </li>
+                                                                </ul>
+                                                            </div><!-- /.action -->
+                                                        </div><!-- /.cart -->
+                                                    </div><!-- /.product -->
 
-    <!-- ============================================== FOOTER ============================================== -->
-    <footer id="footer" class="footer color-bg">
-        <?php include('includes/footer.php'); ?>
-    </footer>
-    <!-- ============================================== FOOTER : END ============================================== -->
+                                                </div><!-- /.products -->
+                                            </div><!-- /.item -->
+                                        <?php } ?>
+                                    </div><!-- /.owl-carousel -->
+                                </div><!-- /.product-slider -->
+                            </div><!-- /.tab-pane -->
 
-    <!-- JavaScripts -->
-    <script src="assets/js/jquery-1.11.1.min.js"></script>
-    <script src="assets/js/bootstrap.min.js"></script>
-    <script src="assets/js/owl.carousel.min.js"></script>
-    <script src="assets/js/jquery.colorbox-min.js"></script>
-    <script src="assets/js/bootstrap-hover-dropdown.min.js"></script>
-    <script src="assets/js/echo.min.js"></script>
-    <script src="assets/js/jquery.easing-1.3.min.js"></script>
-    <script src="assets/js/jquery.waypoints.min.js"></script>
-    <script src="assets/js/jquery.countTo.js"></script>
-    <script src="assets/js/jquery.parallax-1.1.3.min.js"></script>
-    <script src="assets/js/jquery.prettyPhoto.min.js"></script>
-    <script src="assets/js/jquery.customSelect.min.js"></script>
-    <script src="assets/js/wow.min.js"></script>
-    <script src="assets/js/rateit.min.js"></script>
-    <script src="assets/js/bootstrap-select.min.js"></script>
+                        </div><!-- /.tab-content -->
+                    </div><!-- /.scroll-tabs -->
+                </div><!-- /.furniture-container -->
+            </div><!-- /.container -->
+        </div><!-- /.body-content -->
 
-    <script src="assets/js/scripts.js"></script>
+        <!-- ============================================== FOOTER ============================================== -->
+        <footer id="footer" class="footer color-bg">
+            <?php include('includes/footer.php'); ?>
+        </footer>
+        <!-- ============================================== FOOTER : END ============================================== -->
+
+        <!-- JavaScripts -->
+        <script src="assets/js/jquery-1.11.1.min.js"></script>
+        <script src="assets/js/bootstrap.min.js"></script>
+        <script src="assets/js/owl.carousel.min.js"></script>
+        <script src="assets/js/jquery.colorbox-min.js"></script>
+        <script src="assets/js/bootstrap-hover-dropdown.min.js"></script>
+        <script src="assets/js/echo.min.js"></script>
+        <script src="assets/js/jquery.easing-1.3.min.js"></script>
+        <script src="assets/js/jquery.waypoints.min.js"></script>
+        <script src="assets/js/jquery.countTo.js"></script>
+        <script src="assets/js/jquery.parallax-1.1.3.min.js"></script>
+        <script src="assets/js/jquery.prettyPhoto.min.js"></script>
+        <script src="assets/js/jquery.customSelect.min.js"></script>
+        <script src="assets/js/wow.min.js"></script>
+        <script src="assets/js/rateit.min.js"></script>
+        <script src="assets/js/bootstrap-select.min.js"></script>
+
+        <script src="assets/js/scripts.js"></script>
 
 </body>
 
