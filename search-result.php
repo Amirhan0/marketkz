@@ -213,7 +213,6 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
 																<div class="product-price">
 																	<span class="price">
 																		<?php echo htmlentities($row['productPrice']); ?> ₸ </span>
-																	<span class="price-before-discount"><?php echo htmlentities($row['productPriceBeforeDiscount']); ?></span>
 
 																</div><!-- /.product-price -->
 

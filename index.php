@@ -197,7 +197,6 @@ function getExchangeRate()
 
                                                     <div class="product-info text-left">
                                                         <h3 class="name"><a href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>"><?php echo htmlentities($row['productName']); ?></a></h3>
-                                                        <div class="rating rateit-small"></div>
                                                         <div class="description"></div>
                                                         <div class="product-price">
                                                             <span class="price"><?php echo number_format($priceInTenge, 2); ?> ₸.</span>
@@ -249,7 +248,6 @@ function getExchangeRate()
 
                                                     <div class="product-info text-left">
                                                         <h3 class="name"><a href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>"><?php echo htmlentities($row['productName']); ?></a></h3>
-                                                        <div class="rating rateit-small"></div>
                                                         <div class="description"></div>
                                                         <div class="product-price">
                                                             <span class="price"><?php echo htmlentities($row['productPrice']); ?> ₸.</span>
@@ -288,7 +286,6 @@ function getExchangeRate()
                                     ?>
                                         <div class="item item-carousel">
                                             <div class="products">
-
                                                 <div class="product">
                                                     <div class="product-image">
                                                         <div class="image">
@@ -302,7 +299,6 @@ function getExchangeRate()
 
                                                     <div class="product-info text-left">
                                                         <h3 class="name"><a href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>"><?php echo htmlentities($row['productName']); ?></a></h3>
-                                                        <div class="rating rateit-small"></div>
                                                         <div class="description"></div>
                                                         <div class="product-price">
                                                             <span class="price"><?php echo htmlentities($row['productPrice']); ?> ₸.</span>

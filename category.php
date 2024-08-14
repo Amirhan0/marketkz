@@ -204,9 +204,6 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
                                                                     <span class="price">
                                                                      <?php echo htmlentities($row['productPrice']); ?> ₸
                                                                     </span>
-                                                                    <span class="price-before-discount">
-                                                                        <?php echo htmlentities($row['productPriceBeforeDiscount']); ?>
-                                                                    </span>
                                                                 </div><!-- /.product-price -->
                                                             </div><!-- /.product-info -->
                                                             <div class="cart clearfix animate-effect">
