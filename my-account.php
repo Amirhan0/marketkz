@@ -71,7 +71,7 @@ if (strlen($_SESSION['login']) == 0) {
     <link href="assets/css/dark-green.css" rel="alternate stylesheet" title="Темно-зеленый цвет">
     <link rel="stylesheet" href="assets/css/font-awesome.min.css">
     <link href='http://fonts.googleapis.com/css?family=Roboto:300,400,500,700' rel='stylesheet' type='text/css'>
-    <link rel="shortcut icon" href="assets/images/favicon.ico">
+    <link rel="shortcut icon" href="./opto-logo-mini.jpg">
     <script type="text/javascript">
     function valid() {
         if (document.chngpwd.cpass.value == "") {

@@ -70,7 +70,7 @@ function getExchangeRate()
     <link href='http://fonts.googleapis.com/css?family=Roboto:300,400,500,700' rel='stylesheet' type='text/css'>
 
     <!-- Favicon -->
-    <link rel="shortcut icon" href="assets/images/favicon.ico">
+    <link rel="shortcut icon" href="./opto-logo-mini.jpg">
 </head>
 
 <body class="cnt-home">

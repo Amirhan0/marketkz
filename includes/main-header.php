@@ -17,11 +17,12 @@ if (isset($_GET['action'])) {
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-3 logo-holder">
                 <!-- ============================================================= ЛОГО ============================================================= -->
-                <div class="logo">
-                    <a href="index.php">
-                        <h2>ОПТО МАРКЕТ</h2>
-                    </a>
-                </div>
+                <div class="logo text-center">
+    <a href="index.php" style='display:flex; align-items:center'>
+<img src="../IMG_0993.PNG" style='max-width: 100%; height: 100%' alt="">
+    </a>
+</div>
+
             </div>
             <div class="col-xs-12 col-sm-12 col-md-6 top-search-holder">
                 <div class="search-area">

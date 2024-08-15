@@ -65,7 +65,7 @@ $orders = mysqli_query($con, "select * from orders where userId='" . $_SESSION['
 	<link href="assets/css/dark-green.css" rel="alternate stylesheet" title="Darkgreen color">
 	<link rel="stylesheet" href="assets/css/font-awesome.min.css">
 	<link href='http://fonts.googleapis.com/css?family=Roboto:300,400,500,700' rel='stylesheet' type='text/css'>
-	<link rel="shortcut icon" href="assets/images/favicon.ico">
+	<link rel="shortcut icon" href="./opto-logo-mini.jpg">
 
 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
@@ -191,7 +191,6 @@ $orders = mysqli_query($con, "select * from orders where userId='" . $_SESSION['
 				width: '600px', // Увеличение ширины окна
     padding: '20px', // Увеличение внутреннего отступа
     didOpen: () => {
-        // Прямое изменение стилей заголовка и текста при открытии
         document.querySelector('.swal2-title').style.fontSize = '24px';
         document.querySelector('.swal2-html-container').style.fontSize = '18px';
     }
@@ -210,7 +209,7 @@ $orders = mysqli_query($con, "select * from orders where userId='" . $_SESSION['
 			Swal.fire({
     title: "<?php echo $_SESSION['tp'] ?>тг",
     text: "Оплата наличными происходит исключительно в городе Алматы",
-    imageUrl: "https://png.pngtree.com/png-vector/20190811/ourlarge/pngtree-finance-investment-payment-money-dollar-flat-color-icon-vect-png-image_1656430.jpg",
+    imageUrl: "./nal.jpg",
     imageWidth: 500,
     imageHeight: 300,
     imageAlt: "Custom image",

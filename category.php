@@ -77,8 +77,7 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
     <link href='http://fonts.googleapis.com/css?family=Roboto:300,400,500,700' rel='stylesheet' type='text/css'>
 
     <!-- Favicon -->
-    <link rel="shortcut icon" href="assets/images/favicon.ico">
-
+    <link rel="shortcut icon" href="./opto-logo-mini.jpg">
     <!-- Поддержка элементов HTML5 и медиа-запросов для IE8: HTML5 shim и Respond.js -->
     <!--[if lt IE 9]>
         <script src="assets/js/html5shiv.js"></script>

@@ -8,7 +8,7 @@
                         <div class="footer-logo">
                             <div class="logo">
                                 <a href="index.php">
-                                    <h3>ОПТО МАРКЕТ</h3>
+                                <img src="../IMG_0993.PNG" style='max-width: 100%; height: 100%' alt="">
                                 </a>
                             </div><!-- /.logo -->
                         </div><!-- /.footer-logo -->
