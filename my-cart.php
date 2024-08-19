@@ -213,7 +213,6 @@ if (isset($_POST['shipupdate'])) {
 
                                                 <th class="cart-qty item">Количество</th>
                                                 <th class="cart-sub-total item">Цена за единицу</th>
-                                                <th class="cart-sub-total item">Стоимость доставки</th>
                                                 <th class="cart-total last-item">Итоговая сумма</th>
                                             </tr>
                                         </thead><!-- /thead -->
@@ -243,7 +242,7 @@ if (isset($_POST['shipupdate'])) {
                                             if (!empty($query)) {
                                                 while ($row = mysqli_fetch_array($query)) {
                                                     $quantity = $_SESSION['cart'][$row['id']]['quantity'];
-                                                    $subtotal = $_SESSION['cart'][$row['id']]['quantity'] * $row['productPrice'] + $row['shippingCharge'];
+                                                    $subtotal = $_SESSION['cart'][$row['id']]['quantity'] * $row['productPrice'];
                                                     $totalprice += $subtotal;
                                                     $_SESSION['qnty'] = $totalqunty += $quantity;
 
@@ -282,7 +281,6 @@ if (isset($_POST['shipupdate'])) {
                                                             </div>
                                                         </td>
                                                         <td class="cart-product-sub-total"><span class="cart-sub-total-price"><?php echo "₸" . "" . $row['productPrice']; ?>.00</span></td>
-                                                        <td class="cart-product-sub-total"><span class="cart-sub-total-price"><?php echo "₸" . "" . $row['shippingCharge']; ?>.00</span></td>
 
                                                         <td class="cart-product-grand-total"><span class="cart-grand-total-price"><?php echo "₸" . "" . ($subtotal); ?>.00</span></td>
                                                     </tr>
@@ -296,49 +294,7 @@ if (isset($_POST['shipupdate'])) {
                         </div>
                     </div><!-- /.shopping-cart-table -->
 
-                    <div class="col-md-4 col-sm-12 estimate-ship-tax">
-                        <table class="table table-bordered">
-                            <thead>
-                                <tr>
-                                    <th>
-                                        <span class="estimate-title">Адрес выставления счета</span>
-                                    </th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>
-                                        <div class="form-group">
-                                            <?php $qry = mysqli_query($con, "select * from users where id='" . $_SESSION['id'] . "'");
-                                            while ($rt = mysqli_fetch_array($qry)) {
-                                            ?>
 
-                                                <div class="form-group">
-                                                    <label class="info-title" for="Billing Address">Адрес выставления счета<span>*</span></label>
-                                                    <textarea class="form-control unicase-form-control text-input" name="billingaddress" required="required"><?php echo $rt['billingAddress']; ?></textarea>
-                                                </div>
-
-                                                <div class="form-group">
-                                                    <label class="info-title" for="Billing State ">Область выставления счета<span>*</span></label>
-                                                    <input type="text" class="form-control unicase-form-control text-input" id="bilingstate" name="bilingstate" value="<?php echo $rt['billingState']; ?>" required>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label class="info-title" for="Billing City">Город выставления счета<span>*</span></label>
-                                                    <input type="text" class="form-control unicase-form-control text-input" id="billingcity" name="billingcity" value="<?php echo $rt['billingCity']; ?>" required>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label class="info-title" for="Billing Pincode">Индекс выставления счета<span>*</span></label>
-                                                    <input type="text" class="form-control unicase-form-control text-input" id="billingpincode" name="billingpincode" value="<?php echo $rt['billingPincode']; ?>" required>
-                                                </div>
-                                                <button type="submit" name="update" class="btn-upper btn btn-primary checkout-page-button">Обновить</button>
-                                            <?php } ?>
-                                        </div>
-
-                                    </td>
-                                </tr>
-                            </tbody><!-- /tbody -->
-                        </table><!-- /table -->
-                    </div>
 
                     <div class="col-md-4 col-sm-12 estimate-ship-tax">
                         <table class="table table-bordered">
@@ -391,7 +347,23 @@ if (isset($_POST['shipupdate'])) {
                                     <th>
 
                                         <div class="cart-grand-total">
-                                            Итого<span class="inner-left-md"><?php echo "$totalprice"; ?>₸</span>
+                                            <?php
+                                            if ($totalprice > 0 && $totalprice <= 150000) {
+                                                $shippingCost = 3000;
+                                            } elseif ($totalprice > 150000 && $totalprice <= 400000) {
+                                                $shippingCost = 2000;
+                                            } elseif ($totalprice > 400000) {
+                                                $shippingCost = 0; // Бесплатная доставка для заказов от 500,000 тг
+                                            }
+                                            $itog = $totalprice + $shippingCost;
+                                            $_SESSION['tp'] = $itog;
+
+
+                                            ?>
+
+                                            Товары<span class="inner-left-md"><?php echo "$totalprice"; ?>₸</span>
+                                            Доставка<span class="inner-left-md"><?php echo "$shippingCost"; ?>₸</span>
+                                            Итого<span class="inner-left-md"><?php echo $_SESSION['tp']; ?>₸</span>
                                         </div>
                                     </th>
                                 </tr>

@@ -6,17 +6,17 @@ include('includes/config.php');
 $kaspiQr = false;
 $nal = false;
 // if (strlen($_SESSION['login']) == 0) {
-// 	header('location:login.php');
+//   header('location:login.php');
 // } else {
-// 	if (isset($_POST['submit'])) {
+//   if (isset($_POST['submit'])) {
 
-// 		mysqli_query($con, "update orders set 	paymentMethod='" . $_POST['paymethod'] . "' where userId='" . $_SESSION['id'] . "' and paymentMethod is null ");
-// 		unset($_SESSION['cart']);
-// 		header('location:order-history.php');
-// 	}
+//     mysqli_query($con, "update orders set   paymentMethod='" . $_POST['paymethod'] . "' where userId='" . $_SESSION['id'] . "' and paymentMethod is null ");
+//     unset($_SESSION['cart']);
+//     header('location:order-history.php');
+//   }
 
 if (isset($_POST['submit'])) {
-	mysqli_query($con, "update orders set 	paymentMethod='" . $_POST['paymethod'] . "' where userId='" . $_SESSION['id'] . "' and paymentMethod is null ");
+	mysqli_query($con, "update orders set   paymentMethod='" . $_POST['paymethod'] . "' where userId='" . $_SESSION['id'] . "' and paymentMethod is null ");
 }
 
 if ($_POST['paymethod'] == 'Kaspi') {
@@ -98,6 +98,7 @@ $orders = mysqli_query($con, "select * from orders where userId='" . $_SESSION['
 						<div class="panel-group checkout-steps" id="accordion">
 							<!-- checkout-step-01  -->
 							<div class="panel panel-default checkout-step-01">
+
 
 								<!-- panel-heading -->
 								<div class="panel-heading">
@@ -189,11 +190,11 @@ $orders = mysqli_query($con, "select * from orders where userId='" . $_SESSION['
 				imageHeight: 300,
 				imageAlt: "Custom image",
 				width: '600px', // Увеличение ширины окна
-    padding: '20px', // Увеличение внутреннего отступа
-    didOpen: () => {
-        document.querySelector('.swal2-title').style.fontSize = '24px';
-        document.querySelector('.swal2-html-container').style.fontSize = '18px';
-    }
+				padding: '20px', // Увеличение внутреннего отступа
+				didOpen: () => {
+					document.querySelector('.swal2-title').style.fontSize = '24px';
+					document.querySelector('.swal2-html-container').style.fontSize = '18px';
+				}
 			}).then((result) => {
 				if (result.isConfirmed) {
 					window.location.href = "./order-history.php";
@@ -204,27 +205,28 @@ $orders = mysqli_query($con, "select * from orders where userId='" . $_SESSION['
 		$kaspiQr = false;
 	} ?>
 
+
 	<?php if ($nal == true) { ?>
 		<script>
 			Swal.fire({
-    title: "<?php echo $_SESSION['tp'] ?>тг",
-    text: "Оплата наличными происходит исключительно в городе Алматы",
-    imageUrl: "./nal.jpg",
-    imageWidth: 500,
-    imageHeight: 300,
-    imageAlt: "Custom image",
-    width: '600px', // Увеличение ширины окна
-    padding: '20px', // Увеличение внутреннего отступа
-    didOpen: () => {
-        // Прямое изменение стилей заголовка и текста при открытии
-        document.querySelector('.swal2-title').style.fontSize = '24px';
-        document.querySelector('.swal2-html-container').style.fontSize = '18px';
-    }
-}).then((result) => {
-    if (result.isConfirmed) {
-        window.location.href = "./order-history.php";
-    }
-});
+				title: "<?php echo $_SESSION['tp'] ?>тг",
+				text: "Оплата наличными происходит исключительно в городе Алматы",
+				imageUrl: "./nal.jpg",
+				imageWidth: 500,
+				imageHeight: 300,
+				imageAlt: "Custom image",
+				width: '600px', // Увеличение ширины окна
+				padding: '20px', // Увеличение внутреннего отступа
+				didOpen: () => {
+					// Прямое изменение стилей заголовка и текста при открытии
+					document.querySelector('.swal2-title').style.fontSize = '24px';
+					document.querySelector('.swal2-html-container').style.fontSize = '18px';
+				}
+			}).then((result) => {
+				if (result.isConfirmed) {
+					window.location.href = "./order-history.php";
+				}
+			});
 		</script>
 	<?php
 		$nal = false;

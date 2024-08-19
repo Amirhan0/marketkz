@@ -82,7 +82,7 @@ if (!empty($query)) {
 
                             <div class="clearfix cart-total">
                                 <div class="pull-right">
-                                    <span class="text">Итого:</span><span class='price'>₸.<?php echo $_SESSION['tp'] = "$totalprice"; ?></span>
+                                    <span class="text">Итого:</span><span class='price'>₸.<?php echo $_SESSION['tp'] ?></span>
                                 </div>
                                 <div class="clearfix"></div>
                                 <a href="my-cart.php" class="btn btn-upper btn-primary btn-block m-t-20">Моя корзина</a>
