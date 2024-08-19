@@ -34,7 +34,7 @@ if (strlen($_SESSION['alogin']) == 0) {
             <div class="span9">
                     <div class="content">
 
-    <div class="module">
+    <div class="module" style='width: 110%'>
                             <div class="module-head">
                                 <h3>Управление пользователями</h3>
                             </div>

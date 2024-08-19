@@ -38,9 +38,9 @@ if (strlen($_SESSION['alogin']) == 0) {
             <div class="span9">
                     <div class="content">
 
-    <div class="module">
+    <div class="module" style='width: 120%'>
                             <div class="module-head">
-                                <h3>Ожидающие заказы</h3>
+                                <h3>Заказы сегодня</h3>
                             </div>
                             <div class="module-body table">
     <?php if (isset($_GET['del'])) { ?>

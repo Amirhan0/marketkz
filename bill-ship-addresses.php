@@ -74,7 +74,7 @@ echo "<script>alert('Адрес доставки был обновлен');</scr
 		<link href="assets/css/dark-green.css" rel="alternate stylesheet" title="Darkgreen color">
 		<link rel="stylesheet" href="assets/css/font-awesome.min.css">
 		<link href='http://fonts.googleapis.com/css?family=Roboto:300,400,500,700' rel='stylesheet' type='text/css'>
-		<link rel="shortcut icon" href="assets/images/favicon.ico">
+    <link rel="shortcut icon" href="./opto-logo-mini.jpg">
 
 	</head>
     <body class="cnt-home">

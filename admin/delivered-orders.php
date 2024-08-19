@@ -30,6 +30,16 @@ if (strlen($_SESSION['alogin']) == 0) {
 				popUpWin = open(URLStr, 'popUpWin', 'toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=no,copyhistory=yes,width=' + 600 + ',height=' + 600 + ',left=' + left + ', top=' + top + ',screenX=' + left + ',screenY=' + top + '');
 			}
 		</script>
+		<style>
+   .datatable-1 td div {
+        margin-bottom: 5px; /* Отступ между строками данных */
+    }
+    .datatable-1 td div strong {
+        display: inline-block;
+        width: 150px; /* Ширина метки для выравнивания */
+    }
+</style>
+
 	</head>
 
 	<body>
@@ -42,7 +52,7 @@ if (strlen($_SESSION['alogin']) == 0) {
 					<div class="span9">
 						<div class="content">
 
-							<div class="module">
+							<div class="module" style='width: 110%'>
 								<div class="module-head">
 									<h3>Доставленные заказы</h3>
 								</div>
@@ -57,7 +67,7 @@ if (strlen($_SESSION['alogin']) == 0) {
 									<br />
 
 
-									<table cellpadding="0" cellspacing="0" border="0" class="datatable-1 table table-bordered table-striped display table-responsive">
+									<table cellpadding="10" cellspacing="0" border="0" class="datatable-1 table table-bordered table-striped display table-responsive">
 										<thead>
 											<tr>
 												<th>#</th>
