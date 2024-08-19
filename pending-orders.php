@@ -58,7 +58,7 @@ else{
 		<link href='http://fonts.googleapis.com/css?family=Roboto:300,400,500,700' rel='stylesheet' type='text/css'>
 		
 		<!-- Фавикон -->
-		<link rel="shortcut icon" href="assets/images/favicon.ico">
+ 		<link rel="shortcut icon" href="./opto-logo-mini.jpg">
 
 		<!-- Поддержка HTML5 элементов и медиа-запросов для IE8 : HTML5 shim и Respond.js -->
 		<!--[if lt IE 9]>
@@ -145,8 +145,6 @@ while($row=mysqli_fetch_array($query))
 					<td class="cart-product-grand-total"><?php echo (($qty*$price)+$shippcharge);?></td>
 					<td class="cart-product-sub-total"><?php echo $row['paym']; ?>  </td>
 					<td class="cart-product-sub-total"><?php echo $row['odate']; ?>  </td>
-					
-					<td><a href="pending-orders.php?id=<?php echo $row['oid']; ?> ">Удалить</td>
 				</tr>
 <?php $cnt=$cnt+1;} ?>
 <tr>
