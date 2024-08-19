@@ -1,5 +1,7 @@
 <?php
 session_start();
+
+
 error_reporting(0);
 include('includes/config.php');
 if (isset($_POST['submit'])) {
@@ -136,7 +138,48 @@ if (isset($_POST['shipupdate'])) {
     <!-- ============================================== ШАПКА ============================================== -->
     <header class="header-style-1">
         <?php include('includes/top-header.php'); ?>
-        <?php include('includes/main-header.php'); ?>
+        <?php
+
+        if (isset($_GET['action'])) {
+            if (!empty($_SESSION['cart'])) {
+                foreach ($_POST['quantity'] as $key => $val) {
+                    if ($val == 0) {
+                        unset($_SESSION['cart'][$key]);
+                    } else {
+                        $_SESSION['cart'][$key]['quantity'] = $val;
+                    }
+                }
+            }
+        }
+        ?>
+        <div class="main-header">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-3 logo-holder">
+                        <!-- ============================================================= ЛОГО ============================================================= -->
+                        <div class="logo text-center">
+                            <a href="index.php" style='display:flex; align-items:center'>
+                                <img src="../IMG_0993.PNG" style='max-width: 100%; height: 100%' alt="">
+                            </a>
+                        </div>
+
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-6 top-search-holder">
+                        <div class="search-area">
+                            <form name="search" method="post" action="search-result.php">
+                                <div class="control-group">
+                                    <input class="search-field" placeholder="Ищите здесь..." name="product" required="required" style='outline:none' />
+                                    <button class="search-button" type="submit" name="search" style='border:none'></button>
+                                </div>
+                            </form>
+                        </div><!-- /.search-area -->
+                        <!-- ============================================================= ПОИСК : КОНЕЦ ============================================================= -->
+                    </div><!-- /.top-search-holder -->
+
+
+                </div><!-- /.row -->
+            </div><!-- /.container -->
+        </div>
         <?php include('includes/menu-bar.php'); ?>
     </header>
     <!-- ============================================== ШАПКА : КОНЕЦ ============================================== -->
@@ -337,6 +380,7 @@ if (isset($_POST['shipupdate'])) {
 
                                     </td>
                                 </tr>
+
                             </tbody><!-- /tbody -->
                         </table><!-- /table -->
                     </div>
@@ -347,7 +391,7 @@ if (isset($_POST['shipupdate'])) {
                                     <th>
 
                                         <div class="cart-grand-total">
-                                            Итого<span class="inner-left-md"><?php echo $_SESSION['tp'] = "$totalprice"; ?>₸</span>
+                                            Итого<span class="inner-left-md"><?php echo "$totalprice"; ?>₸</span>
                                         </div>
                                     </th>
                                 </tr>
@@ -363,7 +407,9 @@ if (isset($_POST['shipupdate'])) {
                                 </tr>
                             </tbody><!-- /tbody -->
                         </table><!-- /table -->
-                    <?php } else {
+                    <?php
+
+                                } else {
                                     echo "Ваша корзина пуста";
                                 } ?>
                     </div>
