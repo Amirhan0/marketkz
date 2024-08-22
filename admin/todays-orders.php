@@ -27,6 +27,22 @@ if (strlen($_SESSION['alogin']) == 0) {
             popUpWin = open(URLStr, 'popUpWin', 'toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=no,copyhistory=yes,width=' + 600 + ',height=' + 600 + ',left=' + left + ',top=' + top + ',screenX=' + left + ',screenY=' + top + '');
         }
     </script>
+    <style>
+    @media (max-width: 1366px) {
+    .module-body.table {
+        width: 100%;
+        overflow-x: auto;
+        display: block;
+    }
+
+    .datatable-1 {
+        width: 110%;
+        overflow-x: auto;
+        display: block;
+    }
+}
+
+    </style>
 </head>
 <body>
 <?php include('include/header.php');?>

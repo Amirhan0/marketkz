@@ -35,6 +35,20 @@ if(strlen($_SESSION['alogin']) == 0) {
         display: inline-block;
         width: 150px; /* Ширина метки для выравнивания */
     }
+
+    @media (max-width: 1366px) {
+    .module-body.table {
+        width: 100%;
+        overflow-x: auto;
+        display: block;
+    }
+
+    .datatable-1 {
+        width: 110%;
+        overflow-x: auto;
+        display: block;
+    }
+}
 </style>
 
 </head>

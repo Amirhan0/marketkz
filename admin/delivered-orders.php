@@ -38,6 +38,19 @@ if (strlen($_SESSION['alogin']) == 0) {
         display: inline-block;
         width: 150px; /* Ширина метки для выравнивания */
     }
+	@media (max-width: 1366px) {
+    .module-body.table {
+        width: 100%;
+        overflow-x: auto;
+        display: block;
+    }
+
+    .datatable-1 {
+        width: 110%;
+        overflow-x: auto;
+        display: block;
+    }
+}
 </style>
 
 	</head>
@@ -52,7 +65,7 @@ if (strlen($_SESSION['alogin']) == 0) {
 					<div class="span9">
 						<div class="content">
 
-							<div class="module" style='width: 110%'>
+							<div class="module" style='width: 130%'>
 								<div class="module-head">
 									<h3>Доставленные заказы</h3>
 								</div>
